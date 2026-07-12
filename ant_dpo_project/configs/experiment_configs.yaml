@@ -1,0 +1,61 @@
+# Experiment configuration for the three-stage DPO system.
+# The tabular (CPU) demo reads the `data`, `stages`, `iterative` and `analysis`
+# blocks. The `model` / `lora` blocks parameterise the real trl training path.
+
+seed: 0
+
+data:
+  backend: synthetic          # synthetic | hf
+  hf_dataset: ultrafeedback   # ultrafeedback | hh  (used when backend=hf)
+  n_prompts: 400
+  n_candidates: 8
+  n_users: 500000             # scales impressions per prompt (traffic ~ 500k DAU)
+  reward_spread: 1.5
+  rm_noise: 0.35              # reward-model observation noise
+  ref_suboptimality: 0.6      # how misaligned the SFT/reference policy is (headroom)
+  margin_threshold: 0.5       # margin-based pair filtering (reward gap > tau)
+
+reward_filter:
+  strategy: margin            # margin | topk
+  tau: 0.5
+  top_k: 2
+  model_name: null            # e.g. OpenAssistant/reward-model-deberta-v3-large-v2
+
+cleaning:
+  min_len: 8
+  max_len: 2000
+  simhash_threshold: 3
+
+# Three-stage curriculum. beta is the DPO temperature (KL weight = 1/beta).
+stages:
+  beta: 0.1
+  lr: 0.5
+  steps: 150                   # per curriculum stage (warm-started from the previous)
+  list_size: 6
+  weight:
+    weight_temperature: 1.0
+  rank:
+    position_discount: 0.9
+  list: {}
+
+iterative:
+  n_rounds: 3
+  steps_per_round: 100
+  stage: weight               # which loss to use inside each iterative round
+
+analysis:
+  ess_frac_threshold: 0.5
+
+# ---- real trl training path (needs a GPU) --------------------------------- #
+model:
+  base_model: Qwen/Qwen2.5-0.5B          # or HuggingFaceTB/SmolLM2-360M
+  reward_model: OpenAssistant/reward-model-deberta-v3-large-v2
+lora:
+  r: 16
+  alpha: 32
+  dropout: 0.05
+train:
+  learning_rate: 5.0e-6
+  num_train_epochs: 1.0
+  per_device_train_batch_size: 4
+  gradient_accumulation_steps: 8

@@ -1,0 +1,49 @@
+{
+  "three_stage": [
+    {
+      "stage": "reference",
+      "win_rate": 0.5,
+      "reward": 0.9027604477135907,
+      "kl": 0.0
+    },
+    {
+      "stage": "weight",
+      "win_rate": 0.6620904042131346,
+      "reward": 1.5821912111399876,
+      "kl": 0.4550950204029464
+    },
+    {
+      "stage": "rank",
+      "win_rate": 0.7481237380414754,
+      "reward": 1.852214333948404,
+      "kl": 0.8219582967459814
+    },
+    {
+      "stage": "list",
+      "win_rate": 0.7998748650273549,
+      "reward": 2.007483485863682,
+      "kl": 1.3620538329697058
+    }
+  ],
+  "direct": {
+    "win_rate": 0.7186778715682025,
+    "reward": 1.7759835301413083,
+    "kl": 0.769390847201013,
+    "ess": 0.4605093928427936
+  },
+  "iterative": {
+    "win_rate": 0.7161518805735964,
+    "reward": 1.7687433544383953,
+    "kl": 0.7333792409361021,
+    "ess": 0.9001301268148616
+  },
+  "off_policy": {
+    "direct_final_weight_variance": 2.442541170870112,
+    "direct_final_ess_frac": 0.4605093928427936,
+    "direct_ess_cross_0.5_step": 250,
+    "iterative_final_ess_frac": 0.9001301268148616,
+    "direct_final_reward": 1.7759835301413083,
+    "iterative_final_reward": 1.7687433544383953,
+    "verdict": "Borderline regime \u2014 spend the compute only if you train further. Direct DPO still matches Iterative on reward (\u0394 = -0.007), but its effective sample size has already halved (ESS = 0.46 N, first crossing 0.5 N at step 250) and weight variance has grown to 2.44. Iterative DPO holds ESS at 0.90 N, so pushing training longer or harder (larger beta, more steps) is where Direct DPO's off-policy variance would start to bite and Iterative pays off."
+  }
+}

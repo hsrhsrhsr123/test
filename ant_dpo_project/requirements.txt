@@ -1,0 +1,16 @@
+# Core (required for the CPU tabular pipeline + analysis + figures)
+numpy>=1.24
+pandas>=2.0
+matplotlib>=3.7
+seaborn>=0.12
+scipy>=1.10
+pyyaml>=6.0
+
+# Optional — real 0.5B training path (training/*.py) and the torch loss tests.
+# Not needed for run_pipeline.py on the tabular backend.
+# torch>=2.1
+# transformers>=4.44
+# trl>=0.11
+# peft>=0.12
+# accelerate>=0.34
+# datasets>=2.20

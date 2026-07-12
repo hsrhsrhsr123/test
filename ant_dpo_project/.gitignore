@@ -1,0 +1,8 @@
+__pycache__/
+*.pyc
+*.pyo
+.ipynb_checkpoints/
+.DS_Store
+# generated intermediate data (figures + reports under results/ ARE committed)
+results/*.parquet
+results/*.csv

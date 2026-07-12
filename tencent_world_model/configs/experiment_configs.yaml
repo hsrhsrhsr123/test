@@ -1,0 +1,73 @@
+# Experiment configuration for the Neural World Model + latent GRPO/PPO project.
+#
+# Two profiles are provided:
+#   quick  -- fast, CPU-friendly; produces every figure and the full report in
+#             ~10-20 min.  This is the default and is what the committed results
+#             were generated with.
+#   full   -- paper-scale (10 seeds, more iterations, larger world-model data).
+#             Reproduces tighter error bands; ~1-2 h on CPU.
+#
+# Select with:  python run_experiments.py --profile quick
+
+common:
+  latent_dim: 12
+  horizon: 30
+  gamma: 0.99
+  clip_eps: 0.2
+  lr: 3.0e-4
+  entropy_coef: 0.01
+  update_epochs: 4
+  group_size: 8
+  num_prompts: 16
+  gae_lambda: 0.95
+  value_coef: 0.5
+  policy_hidden: 64
+  success_threshold: 0.6
+  eval_episodes: 20
+  convergence_threshold: 0.30    # real-env goal-proximity target for convergence analysis
+
+reward_modes: [dense, sparse, very_sparse]
+
+profiles:
+  # Minimal profile used only for fast end-to-end pipeline testing.
+  smoke:
+    world_model:
+      num_transitions: 4000
+      epochs: 4
+      batch_size: 256
+      lr: 1.0e-3
+    rl:
+      num_iterations: 12
+      eval_every: 4
+      seeds: [0, 1]
+    ablation:
+      group_sizes: [4, 8]
+    long_horizon: 40
+
+  quick:
+    world_model:
+      num_transitions: 20000
+      epochs: 18
+      batch_size: 256
+      lr: 1.0e-3
+    rl:
+      num_iterations: 150
+      eval_every: 10
+      seeds: [0, 1, 2]
+    ablation:
+      group_sizes: [4, 8, 16]
+    long_horizon: 100
+
+  full:
+    world_model:
+      num_transitions: 40000
+      epochs: 25
+      batch_size: 256
+      lr: 1.0e-3
+    rl:
+      num_iterations: 300
+      eval_every: 10
+      seeds: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+    ablation:
+      group_sizes: [4, 8, 16, 32]
+    long_horizon: 200

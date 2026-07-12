@@ -1,0 +1,8 @@
+torch>=2.0
+numpy>=1.24
+matplotlib>=3.7
+scikit-learn>=1.2
+gymnasium>=0.29
+pyyaml>=6.0
+tqdm>=4.65
+# optional: seaborn (nicer plot styling), wandb (experiment logging)

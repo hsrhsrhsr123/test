@@ -1,0 +1,16 @@
+{"id": "good_lru_cache", "logic_density": 3, "readability": 5, "educational_value": 5, "self_containment": 5, "practicality": 4, "rationale": "[mock] 启发式打分,仅用于演示管线", "total": 22}
+{"id": "good_binary_search", "logic_density": 4, "readability": 5, "educational_value": 5, "self_containment": 5, "practicality": 3, "rationale": "[mock] 启发式打分,仅用于演示管线", "total": 22}
+{"id": "good_retry_decorator", "logic_density": 3, "readability": 5, "educational_value": 5, "self_containment": 5, "practicality": 4, "rationale": "[mock] 启发式打分,仅用于演示管线", "total": 22}
+{"id": "good_topo_sort", "logic_density": 4, "readability": 5, "educational_value": 5, "self_containment": 5, "practicality": 4, "rationale": "[mock] 启发式打分,仅用于演示管线", "total": 23}
+{"id": "low_config_dict", "logic_density": 1, "readability": 5, "educational_value": 3, "self_containment": 5, "practicality": 4, "rationale": "[mock] 启发式打分,仅用于演示管线", "total": 18}
+{"id": "low_autogen_pb", "logic_density": 1, "readability": 5, "educational_value": 3, "self_containment": 5, "practicality": 2, "rationale": "[mock] 启发式打分,仅用于演示管线", "total": 16}
+{"id": "low_boilerplate_getters", "logic_density": 3, "readability": 5, "educational_value": 4, "self_containment": 5, "practicality": 3, "rationale": "[mock] 启发式打分,仅用于演示管线", "total": 20}
+{"id": "low_hello_toy", "logic_density": 1, "readability": 3, "educational_value": 2, "self_containment": 5, "practicality": 1, "rationale": "[mock] 启发式打分,仅用于演示管线", "total": 12}
+{"id": "low_data_table", "logic_density": 1, "readability": 4, "educational_value": 2, "self_containment": 5, "practicality": 2, "rationale": "[mock] 启发式打分,仅用于演示管线", "total": 14}
+{"id": "mixed_obfuscated_algo", "logic_density": 4, "readability": 1, "educational_value": 2, "self_containment": 5, "practicality": 4, "rationale": "[mock] 启发式打分,仅用于演示管线", "total": 16}
+{"id": "mixed_verbose_tutorial", "logic_density": 1, "readability": 2, "educational_value": 1, "self_containment": 5, "practicality": 1, "rationale": "[mock] 启发式打分,仅用于演示管线", "total": 10}
+{"id": "mixed_fragment_snippet", "logic_density": 4, "readability": 5, "educational_value": 4, "self_containment": 1, "practicality": 4, "rationale": "[mock] 启发式打分,仅用于演示管线", "total": 18}
+{"id": "mixed_regex_oneliner", "logic_density": 1, "readability": 2, "educational_value": 1, "self_containment": 5, "practicality": 2, "rationale": "[mock] 启发式打分,仅用于演示管线", "total": 11}
+{"id": "mixed_leetcode_toy", "logic_density": 5, "readability": 5, "educational_value": 5, "self_containment": 5, "practicality": 1, "rationale": "[mock] 启发式打分,仅用于演示管线", "total": 21}
+{"id": "mixed_sql_builder_partial", "logic_density": 5, "readability": 4, "educational_value": 4, "self_containment": 1, "practicality": 4, "rationale": "[mock] 启发式打分,仅用于演示管线", "total": 18}
+{"id": "mixed_numeric_no_comments", "logic_density": 5, "readability": 1, "educational_value": 3, "self_containment": 5, "practicality": 3, "rationale": "[mock] 启发式打分,仅用于演示管线", "total": 17}
